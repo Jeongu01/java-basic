@@ -14,8 +14,13 @@ public class Account {
   }
 
   public void deposit(int money) {
-    System.out.println(accNo + " 계좌에 " + money + "만원이 출금되었습니다.");
-    this.balance -= money;
+    if (this.balance < money) {
+      System.out.println(
+          "잔고가 부족하여 " + money + "만원을 출금 할 수 없습니다. 현재 남은 잔고는 " + this.balance + "만원입니다.");
+    } else {
+      System.out.println(accNo + " 계좌에 " + money + "만원이 출금되었습니다.");
+      this.balance -= money;
+    }
   }
 
   public int getBalance() {
